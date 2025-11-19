@@ -30,15 +30,16 @@ int main() {
       scanf("%d", &partida[i][j]);
 
   // Contagem de empates
-  for (i = 0; i < M; i++) 
-    for (j = 0; j < M; j++) 
+  for (i = 0; i < M; i++) {
+    for (j = 0; j < M; j++) {
       if (i != j && partida[i][j] == partida[j][i]) 
         empates++;
+    }    
     // Cada empate é contado duas vezes, então dividimos por 2
     empates /= 2;
     printf("\n");
     printf("Empates: %d\n", empates);
-
+  }
   
     
   
