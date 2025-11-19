@@ -15,8 +15,11 @@
 */
 
 #include <stdio.h>
+#include <windows.h>
 
 int main() {
+  SetConsoleOutputCP(65001);
+  
   int M, i, j, empates = 0;
   int partida[20][20]; 
 
