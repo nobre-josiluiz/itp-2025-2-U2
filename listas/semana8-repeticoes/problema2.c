@@ -12,10 +12,11 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <locale.h>
+#include <windows.h>
 
 int main() {
-    setlocale(LC_ALL, "Portuguese");
+    SetConsoleOutputCP(65001);
+
     int quantidadeChuva[12];
     char mes[12][10] = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
     char tempoMes[10];  
