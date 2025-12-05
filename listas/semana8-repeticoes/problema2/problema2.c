@@ -45,9 +45,7 @@ int main() {
     // Resultado do ranking
     printf("Ranking dos meses mais chuvosos em mm:\n");
     for (int i = 0; i < 12; i++) 
-        printf("%s %d \n", mes[i], quantidadeChuva[i]);
-
-  
+        printf("%s %d \n", mes[i], quantidadeChuva[i]); 
 
     return 0;
 }
