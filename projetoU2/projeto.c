@@ -595,7 +595,7 @@ void cacaPalavras() {
     char **matriz;
     char palavra[100];
     int tamPalavra; // tamanho da palavra
-    int encontrada = 0, cont = 0;
+    int achou, dirAtual = 0;
     int posLinha, posColuna; // posicão linha e coluna
     int dirLinha, dirColuna; // direção linha e coluna
     int i, j, k;
@@ -659,52 +659,49 @@ void cacaPalavras() {
             printf("\n");
             return;
         }      
-    }    
-    
+    }     
     
 
     // Procurando a palavra na matriz
-    for (i = 0; i < linha; i++) {
-        for (j = 0; j < coluna; j++) { 
+    achou = 0;
+    while ( i < linha && !achou) { // !achou nega a condição, enquanto não achar
+        while (j < coluna && !achou) { 
             // Verificando se a primeira letra da palavra corresponde à posição atual da matriz
-            if (matriz[i][j] == palavra[0]) {  
-                printf( "Primeira letra encontrada na posição (%d, %d)\n", i, j);
+            if (matriz[i][j] == palavra[0]) { 
                 // Verificando todas as direções possíveis
-                for (dirLinha = -1; dirLinha <= 1; dirLinha++) { 
-                    for (dirColuna = -1; dirColuna <= 1; dirColuna++) { 
+                for (dirLinha = -1; dirLinha <= 1 && !achou; dirLinha++) { 
+                    for (dirColuna = -1; dirColuna <= 1 && !achou; dirColuna++) { 
                         if (dirLinha != 0 || dirColuna != 0) {  // Ignorando a direção (0,0)
                             posLinha = i;  
                             posColuna = j;  
-                            encontrada = 1; 
+                            dirAtual = 1; // Variável que verifica se a string está na direção atual
                             // Verificando o resto da palavra
-                            for (k = 1; k < tamPalavra; k++) { 
-                                posLinha += dirLinha; 
-                                posColuna += dirColuna; 
-                                // Verificando se a posição está dentro dos limites da matriz e se a letra corresponde
-                                if (posLinha < 0 || posLinha >= linha || posColuna < 0 || posColuna >= coluna || matriz[posLinha][posColuna] != palavra[k]) { 
-                                    encontrada = 0;
-                                    break;
-                                    
-                                }  
-                                printf(  "Palavra encontrada na posição (%d, %d) com direção (%d, %d)\n", i, j, dirLinha, dirColuna);
+                            for (k = 1; k < tamPalavra && dirAtual; k++) { 
+                                posLinha += dirLinha; // Atualiza as posições atuais da linha e coluna
+                                posColuna += dirColuna;
+                                // Verificando se a posição está dentro dos limites da matriz e se a string corresponde
+                                if (posLinha < 0 || posLinha >= linha || posColuna < 0 || posColuna >= coluna ) dirAtual = 0;
+                                else if (matriz[posLinha][posColuna] != palavra[k]) dirAtual = 0;                               
                             }
+                            if (dirAtual) achou = 1; // Se a palavra foi achada na direção atual e marca como achada
                         }
                     }
                 }
             }
+            j++;
         }
-    }
+        i++;
+        achou = 1;
+    }    
     
-
-    
-    if (encontrada) {
+    if (achou) {
         printf("Palavra encontrada!\n");
-    } else
+    } else { 
         printf("Palavra não encontrada.\n");
-
+    }   
     // Contagem de palavras encontradas
     
-    printf("\nPalavras encontradas: %d\n", cont);
+    //printf("\nPalavras encontradas: %d\n", cont);
     
 
     // Desalocando matriz 
