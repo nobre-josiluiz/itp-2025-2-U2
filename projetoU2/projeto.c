@@ -595,7 +595,7 @@ void cacaPalavras() {
     char **matriz;
     char palavra[100];
     int tamPalavra; // tamanho da palavra
-    int achou, dirAtual = 0;
+    int dirAtual = 0;
     int posLinha, posColuna; // posicão linha e coluna
     int dirLinha, dirColuna; // direção linha e coluna
     int i, j, k;
@@ -663,9 +663,9 @@ void cacaPalavras() {
     
 
     // Procurando a palavra na matriz
-    achou = 0;
-    while ( i < linha && !achou) { // !achou nega a condição, enquanto não achar
-        while (j < coluna && !achou) { 
+    int achou = 0;
+    for ( i = 0; i < linha && !achou; i++) { // !achou nega a condição, enquanto não achar
+        for (j = 0; j < coluna && !achou; j++) { 
             // Verificando se a primeira letra da palavra corresponde à posição atual da matriz
             if (matriz[i][j] == palavra[0]) { 
                 // Verificando todas as direções possíveis
@@ -688,10 +688,7 @@ void cacaPalavras() {
                     }
                 }
             }
-            j++;
         }
-        i++;
-        achou = 1;
     }    
     
     if (achou) {
