@@ -20,7 +20,7 @@
 #include <math.h>
 #include <string.h> // Para strlen
 #include <ctype.h>  // Para isspace - verificar se é espaço em branco, para a função caça palavras
-#include <windows.h>
+#include <windows.h> // para usar a função SetConsoleOutputCP(65001) em main
 
 /****************************************************************************
 Declaração das funções: alocando matrizes 
@@ -714,7 +714,7 @@ Main do programa
 **************************************************************************** */ 
 
 int main() {
-  SetConsoleOutputCP(65001);
+  SetConsoleOutputCP(65001); // para usar acentos e caracteres especiais no printf
   int operacao = 3; // Variável para armazenar a operação a ser realizada;
   float **matriz;
 
