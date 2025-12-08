@@ -696,11 +696,7 @@ void cacaPalavras() {
     } else { 
         printf("Palavra não encontrada.\n");
     }   
-    // Contagem de palavras encontradas
     
-    //printf("\nPalavras encontradas: %d\n", cont);
-    
-
     // Desalocando matriz 
     for (i = 0; i < linha; i++) {
         free(matriz[i]);
