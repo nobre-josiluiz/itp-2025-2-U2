@@ -779,7 +779,7 @@ int main() {
       }
       case 8: {
         printf("Operação de caça palavras selecionada.\n");
-        // Chame a função para realizar o caça palavras com matrizeszes
+        // Chame a função para realizar o caça palavras com matrizes
         cacaPalavras();
         break;
       }
