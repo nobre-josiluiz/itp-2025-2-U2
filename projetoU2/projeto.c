@@ -29,7 +29,7 @@ Declaração das funções: alocando matrizes
 // Função alocando matrizes
 float** alocaMatriz(int linhas, int colunas) {
 
-    float **matriz = (float **)malloc(linhas * sizeof(int*)); 
+    float **matriz = (float **)malloc(linhas * sizeof(float*)); 
     
     if (matriz == NULL) { // Verifica se a alocação foi bem-sucedida
         printf("Erro ao alocar memória para a matriz.\n");
