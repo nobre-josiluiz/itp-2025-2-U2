@@ -36,7 +36,7 @@ float** alocaMatriz(int linhas, int colunas) {
         return NULL;
     }
     for (int i = 0; i < linhas; i++){ // Aloca memória para cada linha da matriz
-        matriz[i] = (float *)malloc(colunas * sizeof(int)); 
+        matriz[i] = (float *)malloc(colunas * sizeof(float)); 
         if (matriz[i] == NULL) { 
             printf("Erro ao alocar memória para a linha %d da matriz.\n", i);
         }
